@@ -1,0 +1,119 @@
+/* Ledger — Design Tokens
+ *
+ * Single source of truth for the Ledger brand color, typography, and spacing system.
+ * Drop into your stylesheet root or import from Tailwind config.
+ *
+ * Aesthetic: Bloomberg terminal meets watch boutique.
+ * Dark only — no light mode.
+ */
+
+:root {
+  /* === COLOR: Backgrounds === */
+  --ledger-ink-deep: #0a0e1a; /* page bg */
+  --ledger-ink-warm: #13151c; /* section bg, zebra rows */
+  --ledger-ink-elevated: #1a1d26; /* cards, modals */
+  --ledger-ink-border: #272a35; /* 1px lines */
+
+  /* === COLOR: Text === */
+  --ledger-text-primary: #f5f2eb; /* warm off-white — NEVER #FFFFFF */
+  --ledger-text-muted: #7a8290; /* labels, captions */
+  --ledger-text-disabled: #4a5060;
+
+  /* === COLOR: Brand (use sparingly) === */
+  --ledger-gold: #e8d4a0; /* MONEY ONLY + brand wordmark — max 3 per screen */
+  --ledger-gold-dim: #b8a578;
+  --ledger-cyan: #5fb3d4; /* live activity, primary buttons, AXL packets */
+  --ledger-cyan-dim: #4a8dab;
+
+  /* === COLOR: Semantic (status badges only) === */
+  --ledger-success: #4a8b6f;
+  --ledger-warning: #d4a347;
+  --ledger-danger: #c97064;
+
+  /* === TYPE: Families === */
+  --ledger-font-display: "Fraunces", ui-serif, Georgia, serif;
+  --ledger-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ledger-font-mono:
+    "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* === TYPE: Scale === */
+  --ledger-text-display-xl: 96px; /* hero numbers, ENS names */
+  --ledger-text-display-lg: 64px;
+  --ledger-text-display-md: 48px; /* stats grid values */
+  --ledger-text-display-sm: 32px; /* modal headers */
+  --ledger-text-body-lg: 18px;
+  --ledger-text-body-md: 14px;
+  --ledger-text-body-sm: 12px;
+  --ledger-text-mono-md: 14px;
+  --ledger-text-mono-sm: 12px;
+  --ledger-text-caps-md: 12px;
+  --ledger-text-caps-sm: 10px;
+
+  /* === TYPE: Weights === */
+  --ledger-weight-regular: 400;
+  --ledger-weight-medium: 500;
+  --ledger-weight-semibold: 600;
+  --ledger-weight-extrabold: 800;
+  --ledger-weight-black: 900;
+
+  /* === TYPE: Tracking === */
+  --ledger-tracking-display-xl: -0.03em;
+  --ledger-tracking-display-md: -0.02em;
+  --ledger-tracking-display-sm: -0.01em;
+  --ledger-tracking-caps-md: 0.08em;
+  --ledger-tracking-caps-sm: 0.1em;
+
+  /* === RADIUS === */
+  --ledger-radius-sm: 4px; /* cards, buttons */
+  --ledger-radius-md: 8px; /* modals — slightly larger for hierarchy */
+  --ledger-radius-lg: 22%; /* iOS-style app icon */
+
+  /* === BORDER === */
+  --ledger-border-width: 1px;
+
+  /* === MOTION === */
+  --ledger-duration-fast: 200ms; /* default ease-out */
+  --ledger-duration-roll: 400ms; /* digit-roll for tickers */
+  --ledger-duration-axl: 1200ms; /* AXL packet flow */
+  --ledger-duration-ceremony: 1500ms; /* iNFT transfer */
+  --ledger-easing-default: ease-out;
+
+  /* === GRID === */
+  --ledger-grid-columns: 12;
+  --ledger-grid-gutter-max: 80px;
+  --ledger-page-padding: 24px;
+}
+
+/* Global defaults */
+body {
+  background: var(--ledger-ink-deep);
+  color: var(--ledger-text-primary);
+  font-family: var(--ledger-font-body);
+  font-size: var(--ledger-text-body-md);
+  font-feature-settings: "tnum"; /* tabular figures by default */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Numbers in display contexts always use Fraunces */
+.ledger-display,
+.ledger-money,
+.ledger-stat {
+  font-family: var(--ledger-font-display);
+  font-feature-settings: "tnum";
+}
+
+.ledger-money {
+  color: var(--ledger-gold);
+}
+.ledger-mono {
+  font-family: var(--ledger-font-mono);
+}
+
+.ledger-caps {
+  font-family: var(--ledger-font-body);
+  font-weight: var(--ledger-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ledger-tracking-caps-md);
+  font-size: var(--ledger-text-caps-md);
+  color: var(--ledger-text-muted);
+}
